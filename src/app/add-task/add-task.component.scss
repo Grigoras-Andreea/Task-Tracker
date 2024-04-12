@@ -1,0 +1,18 @@
+.description-wrapper {
+    position: relative; // Asigură poziționarea relativă pentru a permite poziționarea absolută a etichetei
+  }
+  
+  .description-wrapper label {
+    position: absolute; // Poziționare absolută pentru etichetă
+    top: -20px; // Ajustează poziția verticală a etichetei (poți ajusta această valoare în funcție de preferințe)
+    left: 5px; // Ajustează poziția orizontală a etichetei
+    background-color: #fff; // Asigură un fundal alb pentru a acoperi textul din caseta de text
+    padding: 0 5px; // Adaugă un spațiu între etichetă și caseta de text
+    color: #495057; // Ajustează culoarea etichetei, dacă este necesar
+    font-size: 0.9em; // Ajustează dimensiunea fontului, dacă este necesar
+  }
+  
+  .description-wrapper textarea {
+    width: 100%; // Asigură ca textarea să umple întreaga lățime a containerului
+  }
+  

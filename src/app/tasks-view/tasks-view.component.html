@@ -1,0 +1,10 @@
+<div class="buttons">
+  <button mat-icon-button (click)="isList = true"><mat-icon>list</mat-icon>  </button>
+  <button mat-icon-button (click)="isList = false"><mat-icon>grid_on</mat-icon>  </button>
+</div>
+<div *ngIf="isList">
+  <app-task-list></app-task-list>
+</div>
+<div *ngIf="!isList">
+  <app-task-grid></app-task-grid>
+</div>
