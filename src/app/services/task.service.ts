@@ -11,7 +11,7 @@ export class TaskService {
 
   constructor(private httpClient: HttpClient) { }
 
-  baseUrl="https://tasksapi20240226164535.azurewebsites.net/api/Tasks";
+  baseUrl="https://localhost:7067/Task";
 
   readonly httpOptions = {
     headers: new HttpHeaders({
