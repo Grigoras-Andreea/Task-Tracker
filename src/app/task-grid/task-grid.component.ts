@@ -46,9 +46,7 @@ export class TaskGridComponent implements OnInit{
  
      dialogRef.afterClosed().subscribe((result) => {
        console.log('The dialog was closed');
-       this.taskService.editTask(task).subscribe(() => {
-         this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
-       });
+       this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
      });
    }
 

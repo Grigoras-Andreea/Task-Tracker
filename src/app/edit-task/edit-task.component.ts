@@ -10,6 +10,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { Task } from '../task';
+import { TaskService } from '../services/task.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-task',
@@ -24,21 +26,27 @@ import { Task } from '../task';
     MatDialogContent,
     MatDialogTitle,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    HttpClientModule
   ],
+  providers: [TaskService],
   templateUrl: './edit-task.component.html',
   styleUrl: './edit-task.component.scss'
 })
 export class EditTaskComponent {
   
+  
   constructor(
     public dialogRef: MatDialogRef<EditTaskComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Task
+    @Inject(MAT_DIALOG_DATA) public data: Task,
+    private taskService: TaskService
   ) {}
 
   save(): void {
-    
+    this.taskService.editTask(this.data).subscribe(() => {
     this.dialogRef.close();
+      
+    });
   }
 
   cancel(): void {

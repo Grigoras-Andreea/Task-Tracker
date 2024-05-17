@@ -28,8 +28,7 @@ export class TaskService {
       title: newTask.title,
       description: newTask.description,
       status: newTask.status,
-      assignedTo: "",
-      
+      assignedTo: newTask.assignedTo
     };
 
     return this.httpClient.post<Task>(this.baseUrl, newTaskJson, { headers: this.httpOptions.headers, responseType: 'text' as 'json' });

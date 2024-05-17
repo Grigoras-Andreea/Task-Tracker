@@ -17,6 +17,7 @@ import { NotificationService } from '../notification.service';
 export class AddTaskComponent {
 taskName: string;
 taskDescription: string;
+taskAssignedTo: string;
   tasks: Task[];
 
 constructor(private router: Router, private taskService: TaskService, private notificationService: NotificationService) {
@@ -26,13 +27,14 @@ constructor(private router: Router, private taskService: TaskService, private no
 onSubmit() {
   console.log('Task Name: ' + this.taskName);
   console.log('Task Description: ' + this.taskDescription);
+  console.log('Task Assigned To: ' + this.taskAssignedTo);
   
   const newTask: Task = {
     id: 'unique_id',
     description: this.taskDescription,
     status: Status.ToDo,
     title: this.taskName,
-    assignedTo: ""
+    assignedTo: this.taskAssignedTo
   };
   
   this.taskService.addTask(newTask)
