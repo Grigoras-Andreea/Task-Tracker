@@ -7,6 +7,7 @@ import { TaskListComponent } from '../task-list/task-list.component';
 import {MatIconModule} from '@angular/material/icon';
 import { TaskService } from '../services/task.service';
 import { MatButtonModule } from '@angular/material/button';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-tasks-view',
@@ -20,9 +21,19 @@ import { MatButtonModule } from '@angular/material/button';
 export class TasksViewComponent {
 
   isList: boolean;
+  notificationMessage: string;
 
-  constructor() {
+  constructor(private notificationService: NotificationService) {
+    this.notificationService.initWebSocket();
    
+  }
+
+  ngOnInit() {
+    this.notificationService.notificationSubject.
+    subscribe( hasNotifications => 
+      this.notificationMessage = hasNotifications ? 
+      "New notifications, please refresh the page" : "");
+
   }
 
 }

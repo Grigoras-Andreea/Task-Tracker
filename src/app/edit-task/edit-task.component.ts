@@ -7,6 +7,8 @@ import {
   from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 import { Task } from '../task';
 
 @Component({
@@ -20,7 +22,9 @@ import { Task } from '../task';
     MatDialogActions,
     MatDialogClose,
     MatDialogContent,
-    MatDialogTitle
+    MatDialogTitle,
+    MatSelectModule,
+    MatOptionModule
   ],
   templateUrl: './edit-task.component.html',
   styleUrl: './edit-task.component.scss'

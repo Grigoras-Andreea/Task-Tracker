@@ -2,6 +2,10 @@
   <button mat-icon-button (click)="isList = true"><mat-icon>list</mat-icon>  </button>
   <button mat-icon-button (click)="isList = false"><mat-icon>grid_on</mat-icon>  </button>
 </div>
+<p>
+  {{notificationMessage}}
+</p>
+
 <div *ngIf="isList">
   <app-task-list></app-task-list>
 </div>

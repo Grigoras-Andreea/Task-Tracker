@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { TasksViewComponent } from './tasks-view/tasks-view.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NotificationService } from './notification.service';
 
 @Component({
   selector: 'app-root',
@@ -15,4 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'task-tracker';
+  constructor(private notificationService: NotificationService) {
+    this.notificationService.initWebSocket();
+  }
 }

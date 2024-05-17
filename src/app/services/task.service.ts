@@ -11,7 +11,7 @@ export class TaskService {
 
   constructor(private httpClient: HttpClient) { }
 
-  baseUrl="https://localhost:7067/Task";
+  baseUrl="http://localhost:5168/Task";
 
   readonly httpOptions = {
     headers: new HttpHeaders({
@@ -25,7 +25,7 @@ export class TaskService {
 
   addTask(newTask: Task) {
     const newTaskJson = <Task>{
-      name: newTask.name,
+      title: newTask.title,
       description: newTask.description,
       status: newTask.status,
       assignedTo: "",

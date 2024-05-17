@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { TaskService } from '../services/task.service';
 import { Task } from '../task';
 import { Status } from '../status_enum';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-add-task',
@@ -18,7 +19,7 @@ taskName: string;
 taskDescription: string;
   tasks: Task[];
 
-constructor(private router: Router, private taskService: TaskService) {
+constructor(private router: Router, private taskService: TaskService, private notificationService: NotificationService) {
   this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
 }
 
@@ -30,20 +31,21 @@ onSubmit() {
     id: 'unique_id',
     description: this.taskDescription,
     status: Status.ToDo,
-    name: this.taskName,
+    title: this.taskName,
     assignedTo: ""
   };
   
   this.taskService.addTask(newTask)
       .subscribe(task => {
-        console.log('Task added successfully:', task);
+        this.notificationService.sendMessage("BroadcastMessage", [task])
+        
         this.router.navigate(['/']);
       });
 
-  this.router.navigate(['/']);
 }
 
 cancel() {
   this.router.navigate(['/']);
 }
+
 }
